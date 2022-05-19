@@ -1,0 +1,11 @@
+<h1>Index Lists</h1>
+<br>
+Nombre de Lists = <%=@lists.count%>.
+<br>
+Les Lists dispo :
+<br>
+<ul class="list-group">
+  <% @lists.each do |l| %>
+    <li class="list-group-item">
+    <%= link_to l.name, list_path(l) %>
+  <% end %>
