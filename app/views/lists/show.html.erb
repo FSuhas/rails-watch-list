@@ -1,12 +1,14 @@
+<h2 class="text-center"><%= @list.name %></h2>
 
+<div class="container d-flex justify-content-center">
 
-<h1>Show Lists</h1>
+  <% @list.bookmarks.each do |b|%>
+    <div>
+      <%= image_tag b.movie.poster_url, class: 'w-50' %>
+      <div class='card-trip-infos d-flex no-warp'> <%= b.comment %> : <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, bookmark_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+    <br>
+  <% end %>
 
-<h2><%= @list.name %></h2>
-<% @list.bookmarks.each do |b|%>
-<p><%= b.comment %> . <%= link_to "Delete", bookmark_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-<% end %>
-<%= link_to "New", new_list_bookmark_path(@list) %>
-<%# params maybe @bookmark %>
-
-<%= link_to 'Home', root_path%>
+  <%= link_to "New comment", new_list_bookmark_path(@list), data: {turbo_method: :new}, class: 'btn btn-primary' %>
+</div>

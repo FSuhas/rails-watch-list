@@ -1,27 +1,17 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/800/400);">
   <div class="container">
-    <h1>Index Lists</h1>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <h1 class="text-center" >Index Lists</h1>
   </div>
 </div>
-
-Nombre de Lists = <%=@lists.count%>.
 <br>
-Les Lists dispo :
-<br>
-<ul class="list-group">
-  <% @lists.each do |l| %>
-    <li class="list-group-item">
-
-  <% end %>
-<div class="card-trip">
-  <% @lists.each do |l| %>
-    <li class="list-group-item">
-      <img src="l.poster_url" />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= link_to l.name, list_path(l) %></h2>
-        </div>
-      </div>
+<div class="container">
+  <div class="cards">
+    <% @lists.each do |l| %>
+      <%= link_to  list_path(l), style: 'text-decoration: none'  do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= l.photo.attached? ? (cl_image_path l.photo.key, height: 300, crop: :fill) : ('https://picsum.photos/800/400') %>)">
+            <h2><%= l.name %></h2>
+          </div>
+      <% end %>
     <% end %>
+  </div>
 </div>
