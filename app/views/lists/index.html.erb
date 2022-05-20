@@ -1,5 +1,10 @@
-<h1>Index Lists</h1>
-<br>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Index Lists</h1>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
 Nombre de Lists = <%=@lists.count%>.
 <br>
 Les Lists dispo :
@@ -7,5 +12,16 @@ Les Lists dispo :
 <ul class="list-group">
   <% @lists.each do |l| %>
     <li class="list-group-item">
-    <%= link_to l.name, list_path(l) %>
+
   <% end %>
+<div class="card-trip">
+  <% @lists.each do |l| %>
+    <li class="list-group-item">
+      <img src="l.poster_url" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= link_to l.name, list_path(l) %></h2>
+        </div>
+      </div>
+    <% end %>
+</div>
