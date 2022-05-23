@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row my-5">
     <% @lists.each do |l| %>
-      <div class="col-4 my-3">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 my-3">
         <%= link_to  list_path(l), style: 'text-decoration: none'  do %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= l.photo.attached? ? (cl_image_path l.photo.key, height: 300, crop: :fill) : ('https://picsum.photos/800/400') %>')">
             <h2><%= l.name %></h2>
